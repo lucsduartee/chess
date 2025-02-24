@@ -1,0 +1,11 @@
+version: '3.9'
+
+services:
+  dev:
+    image: ruby:3.0
+    container_name: application
+    working_dir: /application
+    ports:
+      - 3666
+    volumes: 
+      - ./:/application
