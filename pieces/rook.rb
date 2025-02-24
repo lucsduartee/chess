@@ -1,7 +1,7 @@
 require_relative 'piece'
 
 module Pieces
-  class Tower < Piece
+  class Rook < Piece
     def initialize color, position
       super color, position
     end

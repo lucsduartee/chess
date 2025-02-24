@@ -13,15 +13,15 @@ class Board
     end
 
     def prettify board
-      new_board = board.transform_values { |column| column.dup }
-      new_board.each do |line, column|
+      prettified = board.transform_values { |column| column.dup }
+      prettified.each do |line, column|
         next if column.each_value.all? { |position| position == ' ' }
         column.each do |k, v|
           column[k] = v if column[k] == ' '
-          column[k] = v.name unless column[k] == ' '
+          column[k] = v.color + '_' + v.name.split('::')[1].downcase unless column[k] == ' '
         end
       end
-      new_board
+      prettified
     end
 
     private
@@ -65,14 +65,14 @@ class Board
 
     def pieces color, line
       [
-        ['a', 'tower'],
+        ['a', 'rook'],
         ['b', 'knight'],
         ['c', 'bishop'],
         ['d', 'queen'],
         ['e', 'king'],
         ['f', 'bishop'],
         ['g', 'knight'],
-        ['h', 'tower'],
+        ['h', 'rook'],
       ].map do |piece|
         Pieces.const_get(piece[1].capitalize).new color, "#{piece[0] + line}"
       end

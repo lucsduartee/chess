@@ -2,7 +2,7 @@ require_relative '../pieces/pawn'
 require_relative '../pieces/king'
 require_relative '../pieces/queen'
 require_relative '../pieces/bishop'
-require_relative '../pieces/tower'
+require_relative '../pieces/rook'
 require_relative '../pieces/knight'
 
 class Charge
@@ -54,14 +54,14 @@ class Charge
 
     def pieces color, line
       [
-        ['a', 'tower'],
+        ['a', 'rook'],
         ['b', 'knight'],
         ['c', 'bishop'],
         ['d', 'queen'],
         ['e', 'king'],
         ['f', 'bishop'],
         ['g', 'knight'],
-        ['h', 'tower'],
+        ['h', 'rook'],
       ].map do |piece|
         Pieces.const_get(piece[1].capitalize).new color, "#{piece[0] + line}"
       end

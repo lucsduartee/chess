@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Minha Página</title>
+    <link rel="stylesheet" type="text/css" href="index.css"/>
+  </head>
+  <body>
+    <div class="board">
+      <% rendered.each do |row| %>
+        <div class="line">
+          <%row[1].each do |item|%>
+            <div class="item">
+              <% if item[1] != ' '%>
+                <img src="<%= "/public/#{item[1]}.png" %>" %>
+              <% end %>
+            </div>
+          <%end%>
+        </div>
+      <% end %>
+    </div>
+    <p>Hoje é <%= Time.now.strftime("%d/%m/%Y") %>.</p>
+  </body>
+</html>

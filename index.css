@@ -1,0 +1,19 @@
+.line {
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  border: 1px solid #000000;
+  height: 70px;
+  padding: 2px;
+}
+
+.board {
+  width: 560px;
+  border: 1px solid #000000;
+}
