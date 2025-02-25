@@ -25,6 +25,7 @@ class Movement
   end
 
   def move_piece
+    piece.already_move = true if piece.name.include?('Pawn')
     board[target_piece_line][target_piece_column.to_sym] = piece
   end
 

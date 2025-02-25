@@ -8,7 +8,6 @@ class PermittedMoves
   def self.call(*args) = new(*args).call
 
   def initialize(piece, board)
-    p "movements", piece.movements
     @piece = piece
     @movements = piece.movements
     @board = board
@@ -18,6 +17,8 @@ class PermittedMoves
 
   def call
     movements.each do |movement|
+      p piece.already_move
+      next if movement == 'pawn_double_short_vertical' && piece.already_move
       method(movement.to_sym).call
     end
     permitted
